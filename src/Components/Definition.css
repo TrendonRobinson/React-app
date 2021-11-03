@@ -1,0 +1,26 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap");
+}
+
+.Definition {
+    text-align: center;
+    color: white;
+    filter: drop-shadow(3px 3px 1px #0007);
+}
+
+.Definition h1 {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-weight: 600;
+    font-size: 90px;
+    margin-bottom: 0px;
+}
+
+.Definition h2 {
+    font-weight: 300;
+    margin-top: 0px;
+}
+
+.Definition .meanings {
+    font-size: 25px;
+}
