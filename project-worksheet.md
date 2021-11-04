@@ -111,7 +111,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Fail-safe | H | 1.5hrs| 1.5hrs | .5hrs |
 | Fail-safe Word Search | H | 1.5hrs| 1.5hrs | .5hrs |
 | Saving Cards | H | .5hrs| .5hrs | .5hrs |
-| Total | H | 6hrs| 4.5hrs | 6hrs |
+| Card Memory Game | H | .5hrs| 1hr | 1hrs |
+| Total | H | 6hrs| 7hrs | 7hrs |
 
 ## Additional Libraries
 none
@@ -120,7 +121,7 @@ none
 
 Fail-safe function for a faulty word
 
-```
+```js
 import { Shake, ShakeLittle, ShakeSlow, ShakeHorizontal } from 'reshake'
 
 // Variables
