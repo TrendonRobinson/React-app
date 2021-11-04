@@ -2,8 +2,8 @@
 
 ## Project Links
 
-- [add your github repo link]()
-- [add your deployment link]()
+- [add your github repo link](https://github.com/TrendonRobinson/React-app)
+- [add your deployment link](https://trendonrobinson.github.io/React-app)
 
 ## Project Description
 
