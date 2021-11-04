@@ -61,6 +61,7 @@ https://api.dictionaryapi.dev/api/v2/entries/en/hello
       ...
 
 ```
+```
 {data: {} }
 ```
 
@@ -120,26 +121,61 @@ none
 Fail-safe function for a faulty word
 
 ```
-function handleClick() {
-    setWordData({
-      title: 'Finding Another Word...'
-    })
-    fetch(`https://random-word-api.herokuapp.com/word?number=10`)
-      .then(res => res.json())
-      .then((result) => {
-        let myWord = result[Math.floor(Math.random()*result.length)];
-        setWord(myWord)
-        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${myWord}`)
-          .then(res => res.json())
-          .then((result) => {
-            setWordData(result)
-            if (result.title) {
-              setWordData({
-                title: 'Finding Another Word'
-              })
-              handleClick()
-            }
-          })
-      })
-  }
+import { Shake, ShakeLittle, ShakeSlow, ShakeHorizontal } from 'reshake'
+
+// Variables
+let delayInMilliseconds = 1000; //1 second
+
+//function 
+function Seconds(amount) {
+    return delayInMilliseconds * amount
+}
+
+// Component
+
+export default function GameCard(props) {
+
+    const [check, setCheck] = useState(false)
+    const [shake, setShake] = useState(false)
+    // const [input, setInput] = useState('')
+
+    // Variables
+    let word = props.data[0]
+
+    // Functions
+    function handleSubmit(event){
+        let inputField = event.target.parentNode.children[0]
+        let inputFieldText = inputField.value.replace(/ /g, "");
+        let answer = inputFieldText.toLowerCase()
+
+        if (answer === word.toLowerCase()) {
+            setCheck(true)
+
+            
+        } else {
+            setShake(true)
+            setTimeout(function() {
+                setShake(false)
+              }, Seconds(.5));
+        }
+
+    }
+
+    return (
+        <div className="GameCard">
+            {check ? <h1 className="answer">{props.data[0]}</h1> : <input className="word-box"/>}
+            <h3>{props.data[1]}</h3>
+            <hr/>
+            {check ? <div/> : shake ? 
+            <ShakeLittle h={20} v={0} r={3}>
+                <button onClick={handleSubmit} className="Wrong">
+                    Wrong
+                </button>
+            </ShakeLittle>: 
+            <button onClick={handleSubmit} className="Submit">
+                    Submit
+            </button>}
+        </div>
+    )
+}
 ```
