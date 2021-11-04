@@ -122,6 +122,13 @@ none
 Fail-safe function for a faulty word
 
 ```js
+// Placeholder
+
+// Styling
+import './GameCard.css';
+
+// React Import
+import React, {useState} from "react";
 import { Shake, ShakeLittle, ShakeSlow, ShakeHorizontal } from 'reshake'
 
 // Variables
