@@ -12,7 +12,7 @@ Use this section to describe your final project and perhaps any links to relevan
 ## API
 
 https://random-word-api.herokuapp.com/word?number=10
-```
+```json
 [
   "spininess",
   "semantic",
@@ -27,7 +27,7 @@ https://random-word-api.herokuapp.com/word?number=10
 ]
 ```
 https://api.dictionaryapi.dev/api/v2/entries/en/hello
-```
+```json
 [
   {
     "word": "hello",
