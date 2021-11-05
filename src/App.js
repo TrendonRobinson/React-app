@@ -6,18 +6,16 @@ import './App.css';
 // React
 import React, {useState, useEffect} from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 // JSON Files
-import IATA from './Json/airportCodes.json'
+import IATA from './Json/airportCodes.json';
 
 // Components
 import NavBar from './Components/NavBar';
 import WordList from './Components/WordList'
+import WordGame from './Components/WordGame';
 import Definition from './Components/Definition'
 
 // Variables
@@ -30,6 +28,8 @@ function App() {
   const [wordData, setWordData] = useState('')
   const [word, setWord] = useState('hello')
   const [myWords, setMyWords] = useState([])
+  const [definitions, setDefinitions] = useState([])
+  const [words, setWords] = useState([])
 
   useEffect(() => {
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
@@ -45,6 +45,17 @@ function App() {
       .then((result) => {
         setWordData(result)
       })
+  }
+
+  function handleReformation() {
+    let tempWordArray = []
+    let tempDefinitionArray = []
+    myWords.forEach((element) => {
+      tempWordArray.push(element[0].word)
+      tempDefinitionArray.push(element[0].meanings[0].definitions[0].definition)
+      setWords(tempWordArray)
+      setDefinitions(tempDefinitionArray)
+    })
   }
 
 
@@ -98,11 +109,13 @@ function App() {
     setMyWords(myWords.filter((word) => {
       return word[0].word !== data.word
     }))
+    handleReformation()
   }
 
   function handleAddToList() {
     myWords.push(wordData)
     setMyWords(myWords)
+    handleReformation()
   }
 
   function handleSound() {
@@ -114,12 +127,12 @@ function App() {
     audio.play()
 
   }
-  
+
   return (
     <div className="dictionary">
       <NavBar/>
 
-      <Route path="/" exact>
+      <Route path={['/', "/React-App"]} exact>
         <div className="center">
 
           <input onKeyPress={handleSearch} className="Search" type="text" placeholder="Search a Word"/>
@@ -139,9 +152,14 @@ function App() {
         </div>
       </Route>
 
-      <Route path="/mywords" exact>
+      <Route path="/my-words" exact>
         <WordList data={myWords} remove={handleRemoveFromList}/>
       </Route>
+
+      <Route path="/word-game" exact>
+        <WordGame words={words} definitions={definitions}/>
+      </Route>
+      
     </div>
   );
 }

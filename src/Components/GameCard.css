@@ -1,0 +1,64 @@
+.GameCard {
+    height: auto;
+    width: 30vw;
+    max-width: 300px;
+    margin: 5px 10px;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    /* background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%); */
+    border-radius: 5px;
+    text-align: center;
+    filter: drop-shadow(3px 3px 1px #0007);
+    transition: 0.25s;
+}
+
+.GameCard:hover {
+    width: 32vw;
+    /* height: 40vh; */
+    max-width: 320px;
+    transition: 0.25s;
+}
+
+@media (max-width: 480px) {
+    .GameCard {
+        width: 100vw;
+    }
+}
+
+.GameCard h2 {
+}
+
+.card-meaning {
+    margin: 5px 0px;
+}
+
+.Submit {
+    margin: 20px;
+    padding: 20px 20px;
+    color: white;
+    background-color: #f86666;
+    border: none;
+    transition: 0.5s;
+}
+
+.Submit:hover {
+    background: white;
+    border: 1px solid rgb(255, 87, 87);
+    color: rgb(255, 87, 87);
+    padding: 20px 25px;
+    transition: 0.5s;
+}
+
+.Wrong {
+    margin: 20px;
+    background: white;
+    border: 1px solid rgb(255, 87, 87);
+    color: rgb(255, 87, 87);
+    padding: 20px 25px;
+    transition: 0.25s;
+}
+
+.answer {
+    opacity: 1;
+    transition: 1s;
+}
