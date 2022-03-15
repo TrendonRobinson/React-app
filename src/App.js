@@ -133,7 +133,7 @@ function App() {
         <div className="dictionary">
             <NavBar />
 
-            <Route path={["/React-App"]} exact>
+            <Route path={["/React-app"]} exact>
                 <div className="center">
                     <input
                         onKeyPress={handleSearch}
